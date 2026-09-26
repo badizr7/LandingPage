@@ -1,0 +1,348 @@
+/* =========================================================
+   Landing page — hoja de estilos
+   Mismos valores de diseño que la versión anterior.
+   ========================================================= */
+
+:root {
+  --bg: #ffffff;
+  --bg-alt: #f6f7f9;
+  --text: #14161a;
+  --muted: #5b6472;
+  --brand: #2f6df6;
+  --brand-dark: #1c4fd0;
+  --border: #e4e7ec;
+  --radius: 12px;
+  --max: 1080px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+section[id] { scroll-margin-top: 88px; }
+
+/* ---------- Header ---------- */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+
+header h1 {
+  margin: 0;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  max-width: var(--max);
+  margin-inline: auto;
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  transition: color 0.15s ease;
+}
+
+header h1:hover { color: var(--brand); }
+
+nav ul {
+  display: flex;
+  gap: 26px;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 12px 20px;
+  border-top: 1px solid var(--border);
+}
+
+nav a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+nav a:hover { color: var(--text); }
+
+/* ---------- Hero ---------- */
+
+#hero {
+  padding: 96px 20px 88px;
+  text-align: center;
+}
+
+#hero h2 {
+  font-size: clamp(2.1rem, 6vw, 3.4rem);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin: 0 auto 20px;
+  max-width: 900px;
+}
+
+#hero p {
+  max-width: 620px;
+  margin: 0 auto 32px;
+  font-size: 1.12rem;
+  color: var(--muted);
+}
+
+/* Los dos enlaces del hero funcionan como botones */
+#hero > a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 4px;
+  padding: 12px 22px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+}
+
+#hero > a:hover { transform: translateY(-1px); }
+
+#hero > a:first-of-type {
+  background: var(--brand);
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(47, 109, 246, 0.28);
+}
+
+#hero > a:first-of-type:hover { background: var(--brand-dark); }
+
+#hero > a:last-of-type {
+  background: #fff;
+  border-color: var(--border);
+  color: var(--text);
+}
+
+#hero > a:last-of-type:hover { border-color: var(--muted); }
+
+/* Marco reservado para la imagen / captura del producto.
+   Bórralo cuando metas la imagen real. */
+#hero::after {
+  content: "Imagen / captura de producto aquí";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 860px;
+  margin: 56px auto 0;
+  aspect-ratio: 16 / 9;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(135deg, rgba(47, 109, 246, 0.10), rgba(47, 109, 246, 0.02)),
+    var(--bg-alt);
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* ---------- Secciones ---------- */
+
+#features,
+#contacto {
+  background: var(--bg-alt);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+#features,
+#precios,
+#contacto {
+  padding: 80px 20px;
+}
+
+#features > h2,
+#precios > h2,
+#contacto > h2 {
+  text-align: center;
+  font-size: clamp(1.7rem, 4vw, 2.3rem);
+  letter-spacing: -0.02em;
+  margin: 0 0 12px;
+}
+
+#contacto > p {
+  text-align: center;
+  color: var(--muted);
+  margin: 0 auto 32px;
+  max-width: 480px;
+}
+
+#features,
+#precios,
+#contacto {
+  max-width: var(--max);
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 22px;
+  justify-items: stretch;
+}
+
+#features > h2,
+#precios > h2,
+#contacto > h2,
+#contacto > p {
+  grid-column: 1 / -1;
+}
+
+#features article,
+#precios article {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 26px;
+  text-align: center;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+#features article:hover,
+#precios article:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(20, 22, 26, 0.06);
+}
+
+#features h3,
+#precios h3 {
+  margin: 0 0 8px;
+  font-size: 1.08rem;
+  letter-spacing: -0.01em;
+}
+
+#features article p,
+#precios article p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.96rem;
+}
+
+/* ---------- Formulario de contacto ---------- */
+
+form {
+  grid-column: 1 / -1;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  display: grid;
+  gap: 6px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 26px;
+}
+
+label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 11px 13px;
+  font: inherit;
+  font-size: 0.95rem;
+  color: var(--text);
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  resize: vertical;
+}
+
+input:focus,
+textarea:focus {
+  outline: 2px solid rgba(47, 109, 246, 0.35);
+  outline-offset: 1px;
+  border-color: var(--brand);
+}
+
+button {
+  margin-top: 18px;
+  padding: 12px 22px;
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #fff;
+  background: var(--brand);
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(47, 109, 246, 0.28);
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+button:hover {
+  background: var(--brand-dark);
+  transform: translateY(-1px);
+}
+
+/* ---------- Botón flotante del color ---------- */
+
+#cambiar-color {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 20;
+  width: 54px;
+  height: 54px;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  line-height: 1;
+  border-radius: 50%;
+  box-shadow: 0 8px 22px rgba(20, 22, 26, 0.22);
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+#cambiar-color:hover { transform: translateY(-2px) scale(1.05); }
+
+/* ---------- Footer ---------- */
+
+footer {
+  border-top: 1px solid var(--border);
+  padding: 28px 20px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+footer p { margin: 0 0 10px; }
+
+footer ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+footer a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+footer a:hover { color: var(--text); }
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 640px) {
+  #hero { padding: 64px 20px 60px; }
+  #features, #precios, #contacto { padding: 60px 20px; }
+  nav ul { gap: 18px; }
+}
